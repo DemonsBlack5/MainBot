@@ -1047,10 +1047,10 @@ client.on("message", message => {
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "clear")) {
  if (!args[1]) {
-                                let x5bz1 = new Discord.RichEmbed()
+                                let DemonsBlack = new Discord.RichEmbed()
                                 .setDescription("-clear <number>")
                                 .setColor("#0000FF")
-                                message.channel.sendEmbed(x5bz1);
+                                message.channel.sendEmbed(DemonsBlack);
                             } else {
                             let messagecount = parseInt(args[1]);
                             message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
@@ -1060,7 +1060,7 @@ client.on("message", message => {
                                                             .setColor("#008000")
                                 .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
                                                                                         message.delete("..");
-                                message.channel.sendEmbed(x5bz2);
+                                message.channel.sendEmbed(DemonsBlack);
                             }
                           }
 });
@@ -1131,6 +1131,44 @@ message.channel.sendEmbed(avatar)
 
 
 
+
+
+
+var DB_id = "270961417316728832";
+                    var i = "0";
+                    var x = "0";
+DB.on("voiceChannelJoin", (msg) => {
+    x++;
+    DB.editChannel(DB_id, { name : "506223071955517440"});
+});
+DB.on("voiceChannelLeave", (msg) => {
+    x--;
+    DB.editChannel(DB_id, { name : "Online :「"+ x +"」"});
+});
+
+DB.on("messageCreate", (msg) => {
+    if(msg.author.id !== "505030742871375880") return DB.createMessage('**This Command is only for the bot Owner**');
+    if(msg.content === "^voice") {
+        let users = msg.channel.guild.members.map(m => m.user.id);
+        let messages = [];
+        messages.push(users);
+        setTimeout(function(){
+        while (i <= messages[0].length - 1) {
+            check = msg.channel.guild.members.get(messages[0][i]);
+        if(!check.voiceState.channelID){
+                i++;
+        }else{
+                x++;
+                i++;
+        }
+}
+    console.log(x);
+    DB.createMessage(msg.channel.id, "**عدد الاعضاء في الفويس** : ``"+x+"``");
+    DB.editChannel(DB_id, { name : "Online :「"+ x +"」"});
+    messages = [];
+}, 1);
+    }
+});
 
 
 
