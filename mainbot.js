@@ -1134,20 +1134,20 @@ message.channel.sendEmbed(avatar)
 
 
 
-var DB_id = "270961417316728832";
+var kboosh_id = "270961417316728832";
                     var i = "0";
                     var x = "0";
-DB.on("voiceChannelJoin", (msg) => {
+kboosh.on("voiceChannelJoin", (msg) => {
     x++;
-    DB.editChannel(DB_id, { name : "506223071955517440"});
+    kboosh.editChannel(kboosh_id, { name : "506223071955517440"});
 });
-DB.on("voiceChannelLeave", (msg) => {
+kboosh.on("voiceChannelLeave", (msg) => {
     x--;
-    DB.editChannel(DB_id, { name : "Online :「"+ x +"」"});
+    kboosh.editChannel(kboosh_id, { name : "Online :「"+ x +"」"});
 });
 
-DB.on("messageCreate", (msg) => {
-    if(msg.author.id !== "505030742871375880") return DB.createMessage('**This Command is only for the bot Owner**');
+kboosh.on("messageCreate", (msg) => {
+    if(msg.author.id !== "505030742871375880") return kboosh.createMessage('**This Command is only for the bot Owner**');
     if(msg.content === "^voice") {
         let users = msg.channel.guild.members.map(m => m.user.id);
         let messages = [];
@@ -1163,8 +1163,8 @@ DB.on("messageCreate", (msg) => {
         }
 }
     console.log(x);
-    DB.createMessage(msg.channel.id, "**عدد الاعضاء في الفويس** : ``"+x+"``");
-    DB.editChannel(DB_id, { name : "Online :「"+ x +"」"});
+    kboosh.createMessage(msg.channel.id, "**عدد الاعضاء في الفويس** : ``"+x+"``");
+    kboosh.editChannel(kboosh_id, { name : "Online :「"+ x +"」"});
     messages = [];
 }, 1);
     }
