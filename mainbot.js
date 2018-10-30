@@ -1164,7 +1164,7 @@ client.on("messageCreate", (msg) => {
 }
     console.log(x);
     client.createMessage(msg.channel.id, "**عدد الاعضاء في الفويس** : ``"+x+"``");
-    client.editChannel(client_id, { name : "Online :「"+ x +"」"});
+    client.editChannel(client_id, { name : "Online : "});
     messages = [];
 }, 1);
     }
