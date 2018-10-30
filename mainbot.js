@@ -1133,8 +1133,7 @@ message.channel.sendEmbed(avatar)
 
 
 
-const client = require("client");
-var client = new client("MzQyOTI2MjI1MzY0MjIxOTUy.DO3qZw.ucmK107sKpgB-fxdT48bZYncKpk");
+
 var client_id = "270961417316728832";
                     var i = "0";
                     var x = "0";
